@@ -5,9 +5,9 @@
 #include "horse.h"
 
 class Race{
+	private:
+		Horse horses[5];
 	public:
-		bool keepGoing;
-		Horse horses[];
 		Race();
 		void runRace();
 		void addHorse(Horse horse, int horseIndex);

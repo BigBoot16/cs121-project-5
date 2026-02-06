@@ -4,17 +4,16 @@
 #include "race.h"
 
 Race::Race(){
-	keepGoing = true;
-	Horse horses[5] = {};
+	Horse horses[] = {};
 }
-
+/*
 void addHorse(Horse horses, int horseIndex){
 	horses[horseIndex] = Horse(horseIndex, 0);
 }
-
+*/
 void printLane(Horse horse){
-	int horseNum = Horse.getNumber(horse);
-	int position = Horse.getPosition(horse);
+	int horseNum = horse.getNumber();
+	int position = horse.getPosition();
 	std::string nums = "01234";
 	std::string lane = "...............";
 	lane[position] = nums[horseNum];
@@ -22,8 +21,8 @@ void printLane(Horse horse){
 }
 
 bool checkWin(Horse horse){
-	if(Horse.getPosition(horse) == 15) {
-		std::cout << "Horse number " << Horse.getNumber(horse) << " is the winner!" << std::endl;
+	if(horse.getPosition() == 15) {
+		std::cout << "Horse number " << horse.getNumber() << " is the winner!" << std::endl;
 		return false;
 	} else {
 		return true;
@@ -31,13 +30,19 @@ bool checkWin(Horse horse){
 }
 
 void runRace(){
+	/*
 	for(int i = 0; i<5; i++) {
 		addHorse(horses, i);
 	}
+	*/
+	
+	Horse horses[5] = {Horse(0, 0), Horse(1, 0), Horse(2, 0), Horse(3, 0), Horse(4, 0)};
+
+	bool keepGoing = true;
 
 	while(keepGoing) {
 		for(int i=0; i<5; i++) {
-			Horse.advance(horses[i]);
+			horses[i].advance();
 			printLane(horses[i]);
 			if(keepGoing) {
 				keepGoing = checkWin(horses[i]);
