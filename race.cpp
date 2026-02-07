@@ -11,7 +11,7 @@ void addHorse(Horse horses, int horseIndex){
 	horses[horseIndex] = Horse(horseIndex, 0);
 }
 */
-void printLane(Horse horse){
+void Race::printLane(Horse horse){
 	int horseNum = horse.getNumber();
 	int position = horse.getPosition();
 	std::string nums = "01234";
@@ -20,7 +20,7 @@ void printLane(Horse horse){
 	std::cout << lane << std::endl;
 }
 
-bool checkWin(Horse horse){
+bool Race::checkWin(Horse horse){
 	if(horse.getPosition() == 15) {
 		std::cout << "Horse number " << horse.getNumber() << " is the winner!" << std::endl;
 		return false;
@@ -29,7 +29,7 @@ bool checkWin(Horse horse){
 	}
 }
 
-void runRace(){
+void Race::runRace(){
 	/*
 	for(int i = 0; i<5; i++) {
 		addHorse(horses, i);
